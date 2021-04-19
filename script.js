@@ -167,11 +167,11 @@ if (sPage == "index.html") {
     // a.append(h4)
     
 
-    var br = document.createElement('br')
+    //var br = document.createElement('br')
 
-    accordion.append(a)
-    accordion.append(br)
-    accordion.append(br)
+    // accordion.append(a)
+    // accordion.append(br)
+    // accordion.append(br)
 
     firebase.database().ref('informacion').once('value', function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
