@@ -159,6 +159,20 @@ if (sPage == "index.html") {
         accordion.append(accordionItem)
     }
 
+    var a = document.createElement('a')
+    a.className = "btn btn-outline-success btn-lg "
+    a.href = "./catalogo.html"
+    a.style.margin = "20px"
+    var h4 = document.createElement('h4')
+    h4.innerHTML = "Catalogo"
+    a.append(h4)
+    
+
+    var br = document.createElement('br')
+
+    accordion.append(a)
+    accordion.append(br)
+    accordion.append(br)
 
     firebase.database().ref('informacion').once('value', function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
@@ -719,7 +733,7 @@ if (sPage == "index.html") {
                 pImg.className = "text-center"
                 pImg.append(img)
                 accordion.append(pImg)
-                
+
             } else if (childData["tipo"] == "video") {
                 var br = document.createElement('br')
 
