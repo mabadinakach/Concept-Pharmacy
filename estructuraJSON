@@ -1,0 +1,51 @@
+{
+    "informacion": [
+        {
+            "titulo": "CONCEPTOS EN DESINFECCIÓN HOSPITALARIA",
+            "texto": [
+                "Desinfección",
+                "Proceso que elimina microorganismos presentes en los objetos, salvo las esporas de las bacterias.",
+                "Desinfección de Alto Nivel.",
+                "Proceso de eliminación dirigido a la destrucción de todos los microorganismos, incluyendo formas vegetativas, virus y esporas, en cualquier objeto, utensilio o equipo utilizado en el hospital.",
+                "Desinfectante",
+                "Cualquier sustancia utilizada en superficies u objetos para destruir virus, bacterias, microbacterias y en algunos casos esporas que pueden causar infecciones.",
+                "Esterilización",
+                "Destrucción o eliminación de cualquier forma de vida; se puede lograr a través de procesos químicos o físicos. La esterilización se puede lograr mediante calor, gases (óxido de etileno, ozono, dióxido de cloro, gas plasma de peróxido de hidrógeno o la fase de vapor del peróxido de hidrógeno), químicos (glutaraldehído y ácido paracético), irradiación ultravioleta, ionizante, microondas y filtración.",
+                "Infección Asociada a la Atención de la Salud (IAAS)",
+                "Es la Condición localizada o generalizada resultante de la reacción adversa a la presencia de un agente infeccioso o su toxina que no estaba presente o en periodo de incubación en el momento del ingreso del paciente a la unidad de atención a la salud o antes de recibir atención sanitaria que puede manifestarse incluso después de su egreso.",
+                "Brote epidemiológico de IAAS",
+                "Ocurrencia de dos o más casos de infección adquirida por el paciente o por el personal de salud de la unidad hospitalaria representando una incidencia mayor de la esperada y en los que existe asociación epidemiológica.",
+                "Áreas de alto riesgo hospitalario",
+                "Áreas de cuidados intensivos (UCI), unidad de trasplantes (UT), unidades de quemados (UQ) y las que defina el Comité de Detección y Control de IAAS o Unidad de Vigilancia Hospitalaria (UVEH).",
+                "Precauciones de Aislamiento",
+                "Desde el primer contacto con el paciente y en todas las áreas del hospital debe cumplirse con las precauciones estándar y contar con los tarjetones en los que se especifiquen los cuidados necesarios para precauciones específicas de acuerdo con los siguientes criterios:",
+                "*Precauciones estándar: rojo",
+                "*Precauciones por contacto: amarillo",
+                "*Precauciones de contacto plus: naranja (en casos confirmados o sospechosos de Clostridium Difficile)",
+                "*Precauciones por gotas: verde (partículas de secreciones respiratorias que se producen al hablar, estornudar o toser y que son iguales o mayores de cinco micras)",
+                "*Precauciones para vía aérea: azul (partículas de secreciones respiratorias que se producen al hablar, estornudar o toser que son menores de cinco micras)",
+                "Los tarjetones se colocarán en la entrada de la habitación, en un lugar visible en cuartos individuales y en la cabecera del paciente en cuartos compartidos."
+            ]
+        },
+        {
+            "titulo":"¿A QUÉ SE REFIERE EL AMBIENTE CON RESPECTO A LAS IAAS?",
+            "texto": [
+                "Si bien las IAAS suelen contraerse por contacto directo con el paciente infectado, en el caso de algunos microorganismos, se ha comprobado que el ambiente cumple una función en la cadena de transmisión, a la cual contribuyen algunas de las siguientes características de los agentes infecciosos:",
+                "* Capacidad de sobrevivir en superficies ambientales durante periodos prolongados en forma vegetativa o como esporas.",
+                "* Capacidad de mantener su virulencia tras exposición ambiental.",
+                "* Capacidad de colonizar pacientes en forma asintomática.",
+                "* Capacidad de contaminar las manos del personal de salud en forma transitoria.",
+                "* Baja dosis infectante.",
+                "Aunque varios microorganismos reúnen esas características, no basta con detectar un microorganismo en el ambiente para que se transmita la infección para ello tiene que darse todos y cada uno de los componentes de la cadena de transmisión. La mera identificación del agente en el ambiente cercano a un paciente no es suficiente para atribuir casualidad.",
+                "Solo para algunos microorganismos hay suficientes estudios que sustentan la contribución de superficies contaminadas a la cadena de transmisión (Cuadro 1)"
+            ]
+        },
+        {
+            "titulo":"LIMPIEZA Y DESINFECCIÓN, ¿SON SINÓNIMOS?",
+            "texto": [
+                "Si bien se suele confundir, limpieza y desinfección no son sinónimos. La primera consiste en eliminar la suciedad depositada en superficies inanimadas por medios mecánicos (fricción), físicos (temperatura) o químicos en un determinado periodo. Por otro lado, la desinfección es el proceso físico o químico por medio del cual se eliminan los microorganismos de formas vegetativas en objetos, sin que se asegure la eliminación de esporas bacterianas.",
+                "En la presente APP, la desinfección se refiere al uso de agentes químicos conocidos como desinfectantes de nivel medio alto por ejemplo el Trocloseno de Sodio (NaDCC), fenoles, hipoclorito de sodio, etc., que eliminan bacterias vegetativas, hongos y algunos virus en un corto periodo de tiempo (menos de 10 minutos)."
+            ]
+        }
+    ]
+}

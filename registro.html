@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Sweet Alert JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.5.0/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css" id="theme-styles">
+    <!-- Nunito Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet">
+    <title>Sign Up | Firebase Auth</title>
+</head>
+<body class="bg-light">
+    <div class="container-fluid">
+        <div class="row mx-1">
+            <div class="col-lg-10 col-md-10 offset-lg-1 offset-md-1 text-center mt-5 pb-4 text-primary">
+                
+            </div>
+            <div class="col-lg-10 col-md-10 offset-lg-1 offset-md-1 bg-white shadow mb-5 border border-primary">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 p-4 bg-primary divCover">
+                        <h2 class="h2 text-center text-light mb-3">Registro</h2>
+                    </div>
+                    <div class="col-lg-6 col-md-6 p-lg-5 p-md-5 px-3 py-4">
+                        <div id="signUpForm">
+                            
+                            <div class="form-group">
+                                <label for="userFullName">Nombre<span class="text-danger ml-1">*</span></label>
+                                <input type="text" class="form-control" id="userFullName" onblur="checkUserFullName()" placeholder="Nombre">
+                                <small id="userFullNameError" class="form-text text-danger">Debes llenar este campo.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="userSurname">Apellido<span class="text-danger ml-1">*</span></label>
+                                <input type="text" class="form-control" id="userSurname" onblur="checkUserSurname()" placeholder="Apellido">
+                                <small id="userSurnameError" class="form-text text-danger">Debes llenar este campo.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="userTel">Telefono<span class="text-danger ml-1">*</span></label>
+                                <input type="text" class="form-control" id="userTel" onblur="checkUserTel()" placeholder="55 1234 5678">
+                                <small id="userTelError" class="form-text text-danger">Debes llenar este campo.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="userInstitucion">Institucion<span class="text-danger ml-1">*</span></label>
+                                <input type="text" class="form-control" id="userInstitucion" onblur="checkUserInstitucion()" placeholder="Institucion">
+                                <small id="userInstitucionError" class="form-text text-danger">Debes llenar este campo.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="userPuesto">Puesto<span class="text-danger ml-1">*</span></label>
+                                <input type="text" class="form-control" id="userPuesto" onblur="checkUserPuesto()" placeholder="Puesto">
+                                <small id="userPuestoError" class="form-text text-danger">Debes llenar este campo.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="userEmail">Correo Electronico<span class="text-danger ml-1">*</span></label>
+                                <input type="email" class="form-control" id="userEmail" onblur="checkUserEmail()" placeholder="mail@mail.com">
+                                <small id="userEmailError" class="form-text text-danger">Asegurate que tu email este correcto.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="userPassword">Contraseña<span class="text-danger ml-1">*</span></label>
+                                <input type="password" class="form-control" id="userPassword" onblur="checkUserPassword()" placeholder="**********">
+                                <small id="userPasswordError" class="form-text text-danger">La contraseña debe contener mayusculas, minusculas y debe tener al menos 6 caracteres.</small>
+                            </div>
+                            <button type="button" class="btn btn-outline-primary mb-3" onclick="signUp()">Enviar</button>
+                            <p>¿Ya tienes una cuenta? <a href="../login.html"><strong class="text-primary showSignInForm">Inicia Sesion</strong></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+    </script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
