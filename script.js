@@ -75,7 +75,6 @@ if (sPage == "index.html") {
     var accordion = document.createElement('div')
     accordion.className = "accordion accordion-flush"
     accordion.id = "accordionInfo"
-    accordion.style.bg = "Red"
 
     function isValidHttpUrl(string) {
         let url;
@@ -159,13 +158,13 @@ if (sPage == "index.html") {
         accordion.append(accordionItem)
     }
 
-    var a = document.createElement('a')
-    a.className = "btn btn-outline-success btn-lg "
-    a.href = "./catalogo.html"
-    a.style.margin = "20px"
-    var h4 = document.createElement('h4')
-    h4.innerHTML = "Catalogo"
-    a.append(h4)
+    // var a = document.createElement('a')
+    // a.className = "btn btn-outline-success btn-lg "
+    // a.href = "./catalogo.html"
+    // a.style.margin = "20px"
+    // var h4 = document.createElement('h4')
+    // h4.innerHTML = "Catalogo"
+    // a.append(h4)
     
 
     var br = document.createElement('br')
