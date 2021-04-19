@@ -88,7 +88,7 @@ if (sPage == "index.html") {
         return url.protocol === "http:" || url.protocol === "https:";
     }
 
-    function createAccordion(title, text, id) {
+    function createAccordionHome(title, text, id) {
         var accordionItem = document.createElement('div')
         accordionItem.className = "accordion-item"
 
@@ -177,7 +177,8 @@ if (sPage == "index.html") {
         snapshot.forEach(function (childSnapshot) {
             var childKey = childSnapshot.key;
             var childData = childSnapshot.val();
-            createAccordion(childData["titulo"], childData["texto"], childKey.toString())
+            console.log(childKey.toString())
+            createAccordionHome(childData["titulo"], childData["texto"], childKey.toString())
         });
     });
 
