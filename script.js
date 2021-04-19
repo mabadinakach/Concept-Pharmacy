@@ -277,16 +277,19 @@ if (sPage == "index.html") {
             return checkUserSIPassword();
         } else {
             firebase.auth().signInWithEmailAndPassword(userSIEmail, userSIPassword).then((success) => {
-                Swal.fire({
-                    type: 'successfull',
-                    title: '¡Bienvenido!',
-                }).then((value) => {
-                    setCookie("user", userSIEmail, 30)
-                    setCookie("pass", userSIPassword, 30)
-                    setTimeout(function () {
-                        window.location.replace("./index.html");
-                    }, 1000)
-                });
+                // Swal.fire({
+                //     type: 'successfull',
+                //     title: '¡Bienvenido!',
+                // }).then((value) => {
+                //     setCookie("user", userSIEmail, 30)
+                //     setCookie("pass", userSIPassword, 30)
+                //     setTimeout(function () {
+                        
+                //     }, 1000)
+                // });
+                setCookie("user", userSIEmail, 30)
+                setCookie("pass", userSIPassword, 30)
+                window.location.replace("./index.html");
             }).catch((error) => {
                 // Handle Errors here.
                 var errorCode = error.code;
