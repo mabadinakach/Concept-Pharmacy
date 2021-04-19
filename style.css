@@ -183,3 +183,7 @@ a.article:hover {
         display: none;
     }
 }
+
+[data-toggle~="collapse"] {
+    cursor: pointer;
+}
