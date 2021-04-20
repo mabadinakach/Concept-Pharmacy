@@ -395,6 +395,10 @@ if (sPage == "index.html") {
         }
     }
 
+    function checkUserPuesto() {
+
+    }
+
     // xxxxxxxxxx User Surname Validation xxxxxxxxxx
     function checkUserSurname() {
         var userSurname = document.getElementById("userSurname").value;
@@ -472,7 +476,7 @@ if (sPage == "index.html") {
 
         var checkUserFullNameValid = userFullName.match(userFullNameFormate);
         var checkUserEmailValid = userEmail.match(userEmailFormate);
-        var checkUserPasswordValid = userPassword.match(userPasswordFormate);
+        //var checkUserPasswordValid = userPassword.match(userPasswordFormate);
 
         if (checkUserFullNameValid == null) {
             return checkUserFullName();
