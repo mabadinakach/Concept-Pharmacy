@@ -269,13 +269,15 @@ if (sPage == "index.html") {
         var userSIPasswordFormate = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}/;
 
         var checkUserEmailValid = userSIEmail.match(userSIEmailFormate);
-        var checkUserPasswordValid = userSIPassword.match(userSIPasswordFormate);
+        //var checkUserPasswordValid = userSIPassword.match(userSIPasswordFormate);
 
         if (checkUserEmailValid == null) {
             return checkUserSIEmail();
-        } else if (checkUserPasswordValid == null) {
-            return checkUserSIPassword();
-        } else {
+        }
+        // } else if (checkUserPasswordValid == null) {
+        //     return checkUserSIPassword();
+        // } 
+        else {
             firebase.auth().signInWithEmailAndPassword(userSIEmail, userSIPassword).then((success) => {
                 // Swal.fire({
                 //     type: 'successfull',
