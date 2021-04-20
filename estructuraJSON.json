@@ -1,6 +1,14 @@
 {
     "informacion": [
         {
+            "titulo":"CERTIFICADOS DE CALIDAD, ABRIR EL SIGUIENTE LINK",
+            "texto": [
+                "En el siguiente enlace tendrás acceso a toda nuestra información técnica (fichas técnicas y hojas de seguridad), cartas de recomendación de nuestra prestigiosa lista de clientes y resultados obtenidos en pruebas de laboratorio. Garantizamos un resultado eficaz.",
+                "Concept for Pharacy México es tu mejor opción.",
+                "https://drive.google.com/drive/folders/1YEUzzgir4JyNWAVRwVubEDe6RkUmCvQ8?usp=sharing"
+            ]
+        },
+        {
             "titulo": "CONCEPTOS EN DESINFECCIÓN HOSPITALARIA",
             "texto": [
                 "TITULO: Desinfección",
@@ -213,14 +221,6 @@
             "texto": [
                 "Adaptado de Havill NL. Best practices in desinfection of noncritical surfaces in the healt care setting: creating a bundle for success. American jornal of infection control, 2013, 41 (5 Suppl), pp.S26-30. Disponible en:",
                 "http://www.ncbi.nlm.nih.gov/pubmed/23622744"
-            ]
-        },
-        {
-            "titulo":"PRODUCTOS DE CALIDAD CERTIFICADOS CIENTÍFICAMENTE",
-            "texto": [
-                "En el siguiente enlace tendrás acceso a toda nuestra información técnica (fichas técnicas y hojas de seguridad), cartas de recomendación de nuestra prestigiosa lista de clientes y resultados obtenidos en pruebas de laboratorio. Garantizamos un resultado eficaz.",
-                "Concept for Pharacy México es tu mejor opción.",
-                "https://drive.google.com/drive/folders/1YEUzzgir4JyNWAVRwVubEDe6RkUmCvQ8?usp=sharing"
             ]
         }
     ],

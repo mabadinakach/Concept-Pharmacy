@@ -427,11 +427,16 @@ if (sPage == "index.html") {
         var userPassword = document.getElementById("userPassword");
         var userPasswordFormate = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
         var flag;
-        if (userPassword.value.match(userPasswordFormate)) {
+        if (userPassword.value != "") {
             flag = false;
         } else {
             flag = true;
         }
+        // if (userPassword.value.match(userPasswordFormate)) {
+        //     flag = false;
+        // } else {
+        //     flag = true;
+        // }
         if (flag) {
             document.getElementById("userPasswordError").style.display = "block";
         } else {
@@ -461,7 +466,7 @@ if (sPage == "index.html") {
 
         var userFullNameFormate = /^([A-Za-z.\s_-])/;
         var userEmailFormate = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        var userPasswordFormate = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}/;
+        //var userPasswordFormate = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}/;
 
         var checkUserFullNameValid = userFullName.match(userFullNameFormate);
         var checkUserEmailValid = userEmail.match(userEmailFormate);
@@ -473,8 +478,6 @@ if (sPage == "index.html") {
             return checkUserSurname();
         } else if (checkUserEmailValid == null) {
             return checkUserEmail();
-        } else if (checkUserPasswordValid == null) {
-            return checkUserPassword();
         } else {
             firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).then((success) => {
                 var user = firebase.auth().currentUser;
