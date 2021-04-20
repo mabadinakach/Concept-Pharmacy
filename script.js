@@ -25,9 +25,9 @@ function checkCookie() {
     var user = getCookie("user");
     var pass = getCookie("pass")
     if (user != "" && pass != "" && sPage != "index.html") {
-        window.location.replace("./index.html");
+        window.location.replace("../index.html");
     } else {
-        window.location.replace("./login.html");
+        window.location.replace("../login.html");
         alert("Debes iniciar sesion")
     }
 }
@@ -65,7 +65,7 @@ if (sPage == "index.html") {
     if (user != "" && pass != "") {
         //window.location.replace("./index.html");
     } else {
-        window.location.replace("./login.html");
+        window.location.replace("../login.html");
     }
     
 
@@ -191,7 +191,7 @@ if (sPage == "index.html") {
     var pass = getCookie("pass")
 
     if (user != "" && pass != "") {
-        window.location.replace("./index.html");
+        window.location.replace("../index.html");
     } else {
         //window.location.replace("./login.html");
     }
@@ -291,7 +291,7 @@ if (sPage == "index.html") {
                 // });
                 setCookie("user", userSIEmail, 30)
                 setCookie("pass", userSIPassword, 30)
-                window.location.replace("./index.html");
+                window.location.replace("../index.html");
             }).catch((error) => {
                 // Handle Errors here.
                 var errorCode = error.code;
@@ -336,7 +336,7 @@ if (sPage == "index.html") {
     var pass = getCookie("pass")
 
     if (user != "" && pass != "") {
-        window.location.replace("./index.html");
+        window.location.replace("../index.html");
     } else {
         //window.location.replace("./login.html");
     }
