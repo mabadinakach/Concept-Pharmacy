@@ -590,6 +590,59 @@ if (sPage == "index.html") {
 
     var myOffcanvas = document.getElementById('offcanvasWithBackdrop')
 
+    // <tr>
+    //   <th scope="row">1</th>
+    //   <td>Mark</td>
+    //   <td>Otto</td>
+    //   <td>@mdo</td>
+    // </tr>
+
+    var table = document.getElementById("myTable")
+
+    function getData() {
+        var count = 0
+        firebase.database().ref('usuarios').once('value', function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+                
+                count += 1
+                var childKey = childSnapshot.key;
+                var childData = childSnapshot.val();
+
+                console.log(childData)
+                var tr = document.createElement('tr')
+                var th = document.createElement('th')
+                th.scope = "row"
+                th.innerHTML = count
+                var td1 = document.createElement('td')
+                td1.innerHTML = childData["nombre"] + " " + childData["apellido"]
+                var td2 = document.createElement('td')
+                var emailTd = document.createElement('a')
+                emailTd.innerHTML = childData["email"]
+                emailTd.href = "mailto:"+childData["email"]
+                td2.append(emailTd) 
+                var td3 = document.createElement('td')
+                var telTd = document.createElement('a')
+                telTd.innerHTML = childData["telefono"]
+                telTd.href = "tel:"+childData["telefono"]
+                td3.append(telTd) 
+                var td4 = document.createElement('td')
+                td4.innerHTML = childData["institucion"]
+                var td5 = document.createElement('td')
+                td5.innerHTML = childData["puesto"]
+                
+                tr.append(th)
+                tr.append(td1)
+                tr.append(td2)
+                tr.append(td3)
+                tr.append(td4)
+                tr.append(td5)
+                
+                table.append(tr)
+                console.log(table)
+            });
+        });
+    }
+
     function signInAdmin() {
         var adminEmail = document.getElementById("adminEmail").value;
         var adminPass = document.getElementById("adminPass").value;
@@ -601,8 +654,9 @@ if (sPage == "index.html") {
             }).then((value) => {
                 setTimeout(function () {
                     myModal.hide()
-                    var bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas)
-                    bsOffcanvas.show()
+                    // var bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas)
+                    // bsOffcanvas.show()
+                    getData()
                 }, 1000)
             });
         } else {
