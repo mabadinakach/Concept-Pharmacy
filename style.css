@@ -187,3 +187,7 @@ a.article:hover {
 [data-toggle~="collapse"] {
     cursor: pointer;
 }
+
+.col {
+    padding: 0px !important;
+}

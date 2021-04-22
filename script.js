@@ -59,6 +59,43 @@ function setCookie(cname, cvalue, exdays) {
 
 if (sPage == "index.html") {
 
+    function GetElementInsideContainer(containerID, childID) {
+        var elm = {};
+        var elms = document.getElementById(containerID).getElementsByTagName("*");
+        for (var i = 0; i < elms.length; i++) {
+            if (elms[i].id === childID) {
+                elm = elms[i];
+                break
+            }
+        }
+        return elm;
+    }
+
+    //console.log(GetElementInsideContainer("row", "facebook"))
+    console.log(GetElementInsideContainer("youtube", ""))
+    
+
+    function changeURL(id, value) {
+        element = GetElementInsideContainer(id, "")
+        console.log(element)
+        element.href = value
+        //element.href = value
+    }
+
+    //container -> row -> col
+    window.addEventListener("load", function(){
+
+
+
+        firebase.database().ref('redes-sociales').once('value', function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+                var childKey = childSnapshot.key;
+                var childData = childSnapshot.val();
+                changeURL(childKey, childData)
+            });
+        });
+    });
+
     var user = getCookie("user")
     var pass = getCookie("pass")
 
