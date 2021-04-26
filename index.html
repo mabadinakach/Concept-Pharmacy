@@ -23,7 +23,10 @@
                 hospitalarios, agroalimentarios, pecuarios e industriales, que integra al mejor equipo de especialistas.
                 </h2>
                 <br>
-                <a style="width: 200;" href="tel:5562744475" class="btn btn-outline-success btn-lg">55 62 74 44 75</a>
+                
+                <div class="container-fluid" id="containerTel">
+                    
+                </div>
                 <br>
                 <br>
                 <div class="container-fluid" id="container">
@@ -82,6 +85,106 @@
                 <br>
         </div>
     </div>
+
+    <script>
+        container = document.getElementById("containerTel")
+        console.log(container)
+        console.log(screen.width)
+
+        // <div class="row align-items-start" id="row">
+        //     <div class="col" id="tel1">
+        //         <a style="" href="tel:5581016054" class="btn btn-outline-success btn-lg">55 8101 6054</a>
+        //     </div>
+        //     <div class="col" id="tel2">
+        //         <a style="width: 100%;" href="tel:5524633863" class="btn btn-outline-success btn-lg">55 2463 3863</a>
+        //     </div>
+        //     <div class="col" id="tel3">
+        //         <a style="" href="tel:5562744474" class="btn btn-outline-success btn-lg">55 6274 4474</a>
+        //     </div>
+        // </div>
+
+        if (screen.width > 540) {
+            row = document.createElement('div')
+            row.className = "row align-items-start"
+            row.id = "row"
+
+            tel1Div = document.createElement('div')
+            tel1Div.className = "col"
+            tel1Div.id = "tel1"
+            tel1 = document.createElement('a')
+            tel1.href = "tel:5581016054"
+            tel1.innerHTML = "55 8101 6054"
+            tel1.className = "btn btn-outline-success btn-lg"
+            tel1Div.append(tel1)
+
+            tel2Div = document.createElement('div')
+            tel2Div.className = "col"
+            tel2Div.id = "tel1"
+            tel2 = document.createElement('a')
+            tel2.href = "tel:5524633863"
+            tel2.innerHTML = "55 2463 3863"
+            tel2.className = "btn btn-outline-success btn-lg"
+            tel2Div.append(tel2)
+
+            tel3Div = document.createElement('div')
+            tel3Div.className = "col"
+            tel3Div.id = "tel1"
+            tel3 = document.createElement('a')
+            tel3.href = "tel:5562744474"
+            tel3.innerHTML = "55 6274 4474"
+            tel3.className = "btn btn-outline-success btn-lg"
+            tel3Div.append(tel3)
+
+            row.append(tel1Div)
+            row.append(document.createElement('br'))
+            row.append(tel2Div)
+            row.append(document.createElement('br'))
+            row.append(tel3Div)
+
+            console.log(row)
+
+            container.append(row)
+        } else {
+            col = document.createElement('div')
+            col.className = "col align-items-start"
+            col.id = "col"
+
+            tel1Div = document.createElement('div')
+            tel1Div.className = "row"
+            tel1Div.id = "tel1"
+            tel1 = document.createElement('a')
+            tel1.href = "tel:5581016054"
+            tel1.innerHTML = "55 8101 6054"
+            tel1.className = "btn btn-outline-success btn-lg"
+            tel1Div.append(tel1)
+
+            tel2Div = document.createElement('div')
+            tel2Div.className = "row"
+            tel2Div.id = "tel1"
+            tel2 = document.createElement('a')
+            tel2.href = "tel:5524633863"
+            tel2.innerHTML = "55 2463 3863"
+            tel2.className = "btn btn-outline-success btn-lg"
+            tel2Div.append(tel2)
+
+            tel3Div = document.createElement('div')
+            tel3Div.className = "row"
+            tel3Div.id = "tel1"
+            tel3 = document.createElement('a')
+            tel3.href = "tel:5562744474"
+            tel3.innerHTML = "55 6274 4474"
+            tel3.className = "btn btn-outline-success btn-lg"
+            tel3Div.append(tel3)
+
+            col.append(tel1Div)
+            col.append(document.createElement('br'))
+            col.append(tel2Div)
+            col.append(document.createElement('br'))
+            col.append(tel3Div)            
+
+            container.append(col)
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">

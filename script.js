@@ -70,14 +70,9 @@ if (sPage == "index.html") {
         }
         return elm;
     }
-
-    //console.log(GetElementInsideContainer("row", "facebook"))
-    console.log(GetElementInsideContainer("youtube", ""))
     
-
     function changeURL(id, value) {
         element = GetElementInsideContainer(id, "")
-        console.log(element)
         element.href = value
         //element.href = value
     }
@@ -214,7 +209,6 @@ if (sPage == "index.html") {
         snapshot.forEach(function (childSnapshot) {
             var childKey = childSnapshot.key;
             var childData = childSnapshot.val();
-            console.log(childKey.toString())
             createAccordionHome(childData["titulo"], childData["texto"], childKey.toString())
         });
     });
@@ -645,7 +639,7 @@ if (sPage == "index.html") {
                 var childKey = childSnapshot.key;
                 var childData = childSnapshot.val();
 
-                console.log(childData)
+                
                 var tr = document.createElement('tr')
                 var th = document.createElement('th')
                 th.scope = "row"
@@ -675,7 +669,6 @@ if (sPage == "index.html") {
                 tr.append(td5)
                 
                 table.append(tr)
-                console.log(table)
             });
         });
     }
