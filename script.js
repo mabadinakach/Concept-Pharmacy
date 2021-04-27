@@ -78,26 +78,14 @@ if (sPage == "index.html") {
     function changeURL(id, value) {
         element = GetElementInsideContainer(id, "")
         element.href = value
-        //element.href = value
     }
 
-    //container -> row -> col
     window.addEventListener("load", function(){
 
         
 
         if (user != "" && pass != "") {
             firebase.auth().signInWithEmailAndPassword(user, pass).then((success) => {
-                // Swal.fire({
-                //     type: 'successfull',
-                //     title: '¡Bienvenido!',
-                // }).then((value) => {
-                //     setCookie("user", userSIEmail, 30)
-                //     setCookie("pass", userSIPassword, 30)
-                //     setTimeout(function () {
-                        
-                //     }, 1000)
-                // });
                 setCookie("user", user, 30)
                 setCookie("pass", pass, 30)
                 console.log(firebase.auth().currentUser.email)
@@ -186,11 +174,6 @@ if (sPage == "index.html") {
         content.setAttribute("data-bs-parent", "#accordionInfo")
 
         for (var i = 0; i < text.length; i++) {
-            //var text = text[i]
-            // if (text.includes("TITULO: ")) {
-
-            //     text.replace("TITULO: ", "")
-            // }
             if (text[i].includes("TITULO: ")) {
                 text[i] = text[i].replace("TITULO: ", "")
                 var contentText = document.createElement('div')
@@ -346,16 +329,6 @@ if (sPage == "index.html") {
         // } 
         else {
             firebase.auth().signInWithEmailAndPassword(userSIEmail, userSIPassword).then((success) => {
-                // Swal.fire({
-                //     type: 'successfull',
-                //     title: '¡Bienvenido!',
-                // }).then((value) => {
-                //     setCookie("user", userSIEmail, 30)
-                //     setCookie("pass", userSIPassword, 30)
-                //     setTimeout(function () {
-                        
-                //     }, 1000)
-                // });
                 setCookie("user", userSIEmail, 30)
                 setCookie("pass", userSIPassword, 30)
                 window.location.replace("./index.html");
@@ -404,8 +377,6 @@ if (sPage == "index.html") {
 
     if (user != "" && pass != "") {
         window.location.replace("./index.html");
-    } else {
-        //window.location.replace("./login.html");
     }
 
     // xxxxxxxxxx Working For Sign Up Form xxxxxxxxxx
@@ -657,12 +628,6 @@ if (sPage == "index.html") {
 
     var myOffcanvas = document.getElementById('offcanvasWithBackdrop')
 
-    // <tr>
-    //   <th scope="row">1</th>
-    //   <td>Mark</td>
-    //   <td>Otto</td>
-    //   <td>@mdo</td>
-    // </tr>
 
     var table = document.getElementById("myTable")
 
@@ -793,11 +758,6 @@ if (sPage == "index.html") {
         content.append(pImg)
 
         for (var i = 0; i < text.length; i++) {
-            //var text = text[i]
-            // if (text.includes("TITULO: ")) {
-
-            //     text.replace("TITULO: ", "")
-            // }
             if (text[i].includes("TITULO: ")) {
                 text[i] = text[i].replace("TITULO: ", "")
                 var contentText = document.createElement('div')
