@@ -55,6 +55,10 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
+var delete_cookie = function(name) {
+    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+};
+
 
 
 if (sPage == "index.html") {
@@ -80,6 +84,42 @@ if (sPage == "index.html") {
     //container -> row -> col
     window.addEventListener("load", function(){
 
+        
+
+        if (user != "" && pass != "") {
+            firebase.auth().signInWithEmailAndPassword(user, pass).then((success) => {
+                // Swal.fire({
+                //     type: 'successfull',
+                //     title: '¡Bienvenido!',
+                // }).then((value) => {
+                //     setCookie("user", userSIEmail, 30)
+                //     setCookie("pass", userSIPassword, 30)
+                //     setTimeout(function () {
+                        
+                //     }, 1000)
+                // });
+                setCookie("user", user, 30)
+                setCookie("pass", pass, 30)
+                console.log(firebase.auth().currentUser.email)
+            }).catch((error) => {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                console.log(errorMessage)
+                Swal.fire({
+                    type: 'error',
+                    title: 'Error',
+                    text: "Correo o Contraseña incorrectas, porfavor vuelve a iniciar sesion.",
+                }).then((value) => {
+                    delete_cookie("user")
+                    delete_cookie("pass")
+                    window.location.replace('./login.html')
+                })
+            });
+            
+        } else {
+            window.location.replace("./login.html");
+        }
 
 
         firebase.database().ref('redes-sociales').once('value', function (snapshot) {
@@ -94,11 +134,7 @@ if (sPage == "index.html") {
     var user = getCookie("user")
     var pass = getCookie("pass")
 
-    if (user != "" && pass != "") {
-        //window.location.replace("./index.html");
-    } else {
-        window.location.replace("./login.html");
-    }
+    
     
 
     var main = document.getElementById("main")
@@ -301,7 +337,7 @@ if (sPage == "index.html") {
 
         var checkUserEmailValid = userSIEmail.match(userSIEmailFormate);
         //var checkUserPasswordValid = userSIPassword.match(userSIPasswordFormate);
-
+        console.log("USEEER SIGN IN FUNCtioN")
         if (checkUserEmailValid == null) {
             return checkUserSIEmail();
         }
