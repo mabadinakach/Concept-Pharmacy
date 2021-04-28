@@ -82,7 +82,6 @@ if (sPage == "index.html") {
 
     window.addEventListener("load", function(){
 
-        
 
         if (user != "" && pass != "") {
             firebase.auth().signInWithEmailAndPassword(user, pass).then((success) => {
@@ -108,7 +107,6 @@ if (sPage == "index.html") {
         } else {
             window.location.replace("./login.html");
         }
-
 
         firebase.database().ref('redes-sociales').once('value', function (snapshot) {
             snapshot.forEach(function (childSnapshot) {
@@ -215,7 +213,7 @@ if (sPage == "index.html") {
     a.style.margin = "20px"
     var h4 = document.createElement('h4')
     h4.innerHTML = "Catalogo"
-    a.append(h4)
+    
     
 
     var br = document.createElement('br')
@@ -230,11 +228,16 @@ if (sPage == "index.html") {
             var childData = childSnapshot.val();
             createAccordionHome(childData["titulo"], childData["texto"], childKey.toString())
         });
+        a.append(h4)
+        var loader = document.getElementById("loader");
+        loader.style.display = "none";
+        
     });
 
     main.append(accordion)
     main.append(document.createElement('br'))
     main.append(document.createElement('br'))
+
 } else if (sPage == "login.html") {
 
     var user = getCookie("user")
@@ -810,6 +813,36 @@ if (sPage == "index.html") {
     }
 
 
+    var user = getCookie("user")
+    var pass = getCookie("pass")
+
+    if (user != "" && pass != "") {
+        firebase.auth().signInWithEmailAndPassword(user, pass).then((success) => {
+            setCookie("user", user, 30)
+            setCookie("pass", pass, 30)
+            console.log(firebase.auth().currentUser.email)
+        }).catch((error) => {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log(errorMessage)
+            Swal.fire({
+                type: 'error',
+                title: 'Error',
+                text: "Correo o Contraseña incorrectas, porfavor vuelve a iniciar sesion.",
+            }).then((value) => {
+                delete_cookie("user")
+                delete_cookie("pass")
+                window.location.replace('./login.html')
+            })
+        });
+        
+    } else {
+        window.location.replace("./login.html");
+    }
+
+
+
 
     firebase.database().ref('catalogo').once('value', function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
@@ -846,6 +879,8 @@ if (sPage == "index.html") {
             }
             
         });
+        var loader = document.getElementById("loader");
+        loader.style.display = "none";
     });
 
     main.append(accordion)
