@@ -221,6 +221,8 @@ if (sPage == "index.html") {
     accordion.append(a)
     accordion.append(br)
     accordion.append(br)
+    var slideshow = document.getElementById('slideshow');
+    slideshow.style.display = "none"
 
     firebase.database().ref('informacion').once('value', function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
@@ -230,6 +232,9 @@ if (sPage == "index.html") {
         });
         a.append(h4)
         var loader = document.getElementById("loader");
+        
+
+        slideshow.style.display = "block"
         loader.style.display = "none";
         
     });
