@@ -213,12 +213,44 @@ if (sPage == "index.html") {
     a.style.margin = "20px"
     var h4 = document.createElement('h4')
     h4.innerHTML = "Catalogo"
+
+    var videos = document.createElement('a')
+    videos.className = "btn btn-outline-success btn-lg"
+    videos.href = "./videos"
+    a.style.margin = "0px"
+    var videosText = document.createElement('h4')
+    videosText.innerHTML = "Videos"
+
+    // <div class="row align-items-start" id="row">
+        // <div class="col" id="instagram">
+        //     <a id="instagram" href="https://www.instagram.com/conceptforpharmacy/" target="_blank">
+        //         <span class="image-box">
+        //             <img src="https://storage.mobilebuilder.net/users/images/79a41af5-b321-477d-9632-07213a5bf8ad.png"
+        //                 width="48">
+        //         </span>
+        //     </a>
+        // </div>
+
+    var rowButtons = document.createElement('div')
+    rowButtons.className = "row align-items-start"
+    
+    var colCatalogo = document.createElement('div')
+    colCatalogo.className = "col"
+    colCatalogo.append(a)
+
+    var colVideos = document.createElement('div')
+    colVideos.className = "col"
+    colVideos.append(videos)
+
+    rowButtons.append(colCatalogo)
+    rowButtons.append(colVideos)
     
     
 
     var br = document.createElement('br')
 
-    accordion.append(a)
+    //accordion.append(a)
+    //accordion.append(rowButtons)
     accordion.append(br)
     accordion.append(br)
     var slideshow = document.getElementById('slideshow');
@@ -231,6 +263,7 @@ if (sPage == "index.html") {
             createAccordionHome(childData["titulo"], childData["texto"], childKey.toString())
         });
         a.append(h4)
+        videos.append(videosText)
         var loader = document.getElementById("loader");
         
 
@@ -891,4 +924,76 @@ if (sPage == "index.html") {
     main.append(accordion)
     main.append(document.createElement('br'))
     main.append(document.createElement('br'))
+} else if (sPage == "videos.html") {
+
+    var videosMain = document.getElementById('main-videos')
+    console.log(videosMain)
+
+    var user = getCookie("user")
+    var pass = getCookie("pass")
+
+    if (user != "" && pass != "") {
+        firebase.auth().signInWithEmailAndPassword(user, pass).then((success) => {
+            setCookie("user", user, 30)
+            setCookie("pass", pass, 30)
+            console.log(firebase.auth().currentUser.email)
+        }).catch((error) => {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log(errorMessage)
+            Swal.fire({
+                type: 'error',
+                title: 'Error',
+                text: "Correo o Contraseña incorrectas, porfavor vuelve a iniciar sesion.",
+            }).then((value) => {
+                delete_cookie("user")
+                delete_cookie("pass")
+                window.location.replace('./login.html')
+            })
+        });
+        
+    } else {
+        window.location.replace("./login.html");
+    }
+
+    function createVideo(url, titulo) {
+
+        var div = document.createElement('div')
+        div.className = "text-center"
+        
+        var br = document.createElement('br')
+
+        var _text = document.createElement('h4')
+        _text.innerHTML = titulo
+        
+        var iFrame = document.createElement('iframe')
+        iFrame.src = url
+        iFrame.width = "300"
+        iFrame.height = "315"
+        var pFrame = document.createElement('p')
+        pFrame.className = "text-center"
+        pFrame.append(iFrame)
+
+        div.append(br)
+        div.append(_text)
+        div.append(pFrame)
+        div.append(br)
+
+
+        videosMain.append(div)
+    }
+
+    firebase.database().ref('videos').once('value', function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
+            var childKey = childSnapshot.key;
+            var childData = childSnapshot.val();
+            console.log(childData)
+            createVideo(childData["url"], childData["titulo"])
+            var loader = document.getElementById("loader");
+            loader.style.display = "none";
+        });
+        var loader = document.getElementById("loader");
+        loader.style.display = "none";
+    });
 }
