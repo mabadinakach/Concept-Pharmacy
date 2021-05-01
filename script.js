@@ -905,8 +905,13 @@ if (sPage == "index.html") {
                 
                 var iFrame = document.createElement('iframe')
                 iFrame.src = childData["video"]
-                iFrame.width = "300"
-                iFrame.height = "315"
+                if (window.screen.width > 500) {
+                    iFrame.width = 700
+                    iFrame.height = 600
+                } else {
+                    iFrame.width = 300
+                    iFrame.height = 350
+                }
                 var pFrame = document.createElement('p')
                 pFrame.className = "text-center"
                 pFrame.append(iFrame)
@@ -969,8 +974,13 @@ if (sPage == "index.html") {
         
         var iFrame = document.createElement('iframe')
         iFrame.src = url
-        iFrame.width = "300"
-        iFrame.height = "315"
+        if (window.screen.width > 500) {
+            iFrame.width = 700
+            iFrame.height = 600
+        } else {
+            iFrame.width = 300
+            iFrame.height = 350
+        }
         var pFrame = document.createElement('p')
         pFrame.className = "text-center"
         pFrame.append(iFrame)
